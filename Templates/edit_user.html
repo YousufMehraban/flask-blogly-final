@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+
+{% endblock %}
+
+
+
+{% block content %} 
+
+<form action="/edit_user/{{user_id}}" method="POST" id="form">
+    <fieldset > 
+        <legend><h1> Edit User: {{user.first_name}} </h1></legend>
+        <p>First Name</p>
+        <input type="text" name="first_name" placeholder="Edit First Name">
+        <p>Last Name</p>
+        <input type="text" name="last_name" placeholder="Edit First Name">
+        <p>Image URL</p>
+        <input type="url" name="image_url" placeholder="Edit Image URL">
+        <p>
+        <button>Save Edit</button>
+        <a href="/" id="cancel-edit">Cancel Edit</a>
+        </p>
+    </fieldset>
+</form>
+
+
+<p><a href="/">Back to User List</a></p>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+Add Post
+{% endblock %}
+
+
+
+{% block content %} 
+<form action="/edit_post/{{post.id}}" method="POST" id="form">
+    <fieldset > 
+        <legend><h1> Edit Post for {{post.users.first_name}} {{post.users.last_name}}: </h1></legend>
+        <p>Title</p>
+        <input type="text" name="title" placeholder=" {{post.title}}">
+        <p>Content</p>
+        <input type="text" name="content" placeholder="{{post.content}}">
+        
+        <h3>Tags:</h3>
+        {% for tag in tags %}
+        <p><input type="checkbox" name="checkboxes" value="{{tag.id}}"> {{tag.name}}</p>
+        {% endfor %}
+
+        <p>
+            <button>Save Edit</button>
+            <a href="/post/{{post.id}}" id="cancel-edit">Cancel</a>
+        </p>    
+    </fieldset>
+</form>
+
+<p><a href="/">Back to User List</a></p>
+
+{% endblock %}
